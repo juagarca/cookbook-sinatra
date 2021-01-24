@@ -24,14 +24,15 @@ get '/new' do
   erb :create
 end
 
-get '/recipes' do
+post '/recipes' do
   recipe = Recipe.new(name: params[:name], description: params[:description])
   @cookbook.add(recipe)
   redirect '/'
 end
 
-get '/team/:username' do
-  binding.pry
-  puts params[:username]
-  "The username is #{params[:username]}"
+delete '/recipe/:name' do
+  # binding.pry
+
+  @cookbook.remove_by_name(params[:name])
+  redirect '/'
 end

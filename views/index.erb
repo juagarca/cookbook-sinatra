@@ -1,6 +1,12 @@
 <ul>
   <% @recipes.each do |r| %>
-    <li><%= r.name %></li>
+    <li>
+      <form action='/recipe/<%= r.name %>' method='POST'>
+        <label><%= r.name %></label>
+        <input type='hidden' name='_method' value='DELETE'/>
+        <button type='submit'>❌</button>
+       </form>
+    </li>
   <% end %>
 </ul>
 

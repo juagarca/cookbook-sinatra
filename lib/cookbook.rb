@@ -18,6 +18,12 @@ class Cookbook
     save_to_csv
   end
 
+  def remove_by_name(name)
+    index = -1
+    @recipes.each_with_index { |r, i| index = i if r.name == name }
+    remove_at(index)
+  end
+
   def all
     @recipes
   end
